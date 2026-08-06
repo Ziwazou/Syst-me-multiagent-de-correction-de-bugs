@@ -1,0 +1,22 @@
+# Secrets & Clés API (NE JAMAIS PUSHER SUR GITHUB !)
+.env
+
+# Fichiers de référence locaux (Exclus du push)
+08_full_pipeline_app.py
+methodology.md
+
+# Environnement Virtuel Python
+.venv/
+venv/
+ENV/
+
+# Caches Python & Pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Fichiers OS & IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

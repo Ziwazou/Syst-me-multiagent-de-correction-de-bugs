@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portail Support SmartRecruiters AI - Assistance & Resolution</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Centre de Support & <span>Résolution d'Incidents</span></h1>
+      <p>Un problème avec notre plateforme ? Signalez-le maintenant.</p>
+    </div>
+
+    <!-- Formulaire de signalement d'incident -->
+    <form id="support-form">
+      <div class="form-group">
+        <label for="ticket-id">Code de l'Incident :</label>
+        <input type="text" id="ticket-id" value="CALC-BUG-101" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="user-report">Description du Problème :</label>
+        <textarea id="user-report" placeholder="Décrivez le comportement défaillant observé..." required>L'application calculatrice crashe immédiatement lorsqu'un utilisateur tente d'effectuer une division par zéro (ex: 10 / 0).</textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="btn-submit">
+        <span>Soumettre l'Incident</span>
+      </button>
+    </form>
+
+    <!-- Carte de suivi de la résolution en temps réel -->
+    <div class="status-card" id="status-card">
+      <div class="status-header">
+        <h3 id="status-title">⏳ Analyse & Correction Multi-Agents en cours...</h3>
+        <span class="badge badge-pending" id="status-badge">EN COURS</span>
+      </div>
+      <p id="status-details">Étapes : Triage ➔ Reproduction QA ➔ Coder (Sandbox) ➔ Security Reviewer...</p>
+
+      <div id="result-box" style="display: none;">
+        <p style="margin-top: 1rem;"><strong>🔗 Pull Request GitHub Générée :</strong> <a id="pr-link" href="#" target="_blank" style="color: var(--sr-brand);">https://github.com/...</a></p>
+        <p style="margin-top: 0.6rem;"><strong>📋 Code Source Corrigé & Validé :</strong></p>
+        <pre class="code-box" id="code-output"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
