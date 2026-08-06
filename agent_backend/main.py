@@ -52,6 +52,40 @@ class SecurityAudit(BaseModel):
     pr_title: str = Field(..., description="Titre professionnel suggéré pour la Pull Request GitHub")
 
 
+# STATE GLOBAL
+
+from typing import Annotated
+from langgraph.graph.message import add_messages
+
+class PipelineState(TypedDict):
+    """
+    State Global partagé entre tous les agents du Pipeline.
+
+    """
+    # Historique des messages entre agents
+    messages: Annotated[list, add_messages]
+    
+    # Entrées utilisateur & Répertoire du Projet Cible
+    ticket_id: str
+    user_report: str
+    # Chemin d'accès au projet
+    target_dir: str 
+    # Liste des fichiers ciblés                     
+    fichiers_inspectes: List[str]        
+    
+    # Artefacts générés par les 4 Agents
+    rapport_bug: Optional[RapportBug]
+    reproduction_test: Optional[ReproductionTest]
+    code_correction: Optional[CodeCorrection]
+    security_audit: Optional[SecurityAudit]
+    
+    # État de la boucle et métriques d'exécution
+    code_est_corrige: bool
+    tentatives_correction: int
+    erreur_pytest_derniere: Optional[str]
+    pr_github_url: Optional[str]
+
+
 app = FastAPI(
     title="Pipeline Automatisé Multi-Agents de Bug Fixing",
     description="API Production recevant les tickets du Portail Support et déclenchant la résolution autonome par nos agents",
