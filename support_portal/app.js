@@ -45,9 +45,7 @@ def evaluer_expression_calculatrice(expression: str) -> str:
       },
       body: JSON.stringify({
         ticket_id: ticketId,
-        user_report: userReport,
-        source_code: sampleSourceCode,
-        repository: targetRepo
+        user_report: userReport
       })
     });
 
